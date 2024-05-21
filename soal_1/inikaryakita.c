@@ -159,13 +159,14 @@ static int fungsi_rename(const char *from, const char *to)
 
 static struct fuse_operations fungsi_oper = 
 {
-    .getattr    = fungsi_getattr,
     .readdir    = fungsi_readdir,
-    .open       = fungsi_open,
+    .getattr    = fungsi_getattr,
     .read       = fungsi_read,
     .write      = fungsi_write,
-    .rename     = fungsi_rename,
+    .open       = fungsi_open,
     .chmod      = fungsi_chmod,
+    .rename     = fungsi_rename,
+   
 };
 
 
