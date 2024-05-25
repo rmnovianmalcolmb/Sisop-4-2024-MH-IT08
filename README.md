@@ -497,3 +497,114 @@ int main(int argc, char *argv[]) {
     return fuse_main(argc, argv, &xmp_oper, NULL);
 }
 ```
+
+### smb.conf
+```
+#======================= Global Settings =======================
+
+[global]
+
+## Browsing/Identification ###
+
+   workgroup = WORKGROUP
+
+   server string = %h server (Samba, Ubuntu)
+
+
+#### Networking ####
+
+;   interfaces = 127.0.0.0/8 eth0
+
+;   bind interfaces only = yes
+
+
+#### Debugging/Accounting ####
+
+   log file = /var/log/samba/log.%m
+
+   max log size = 1000
+
+   logging = file
+
+   panic action = /usr/share/samba/panic-action %d
+
+
+####### Authentication #######
+
+   server role = standalone server
+
+   obey pam restrictions = yes
+
+   unix password sync = yes
+
+   passwd program = /usr/bin/passwd %u
+   passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
+
+   pam password change = yes
+
+   map to guest = bad user
+
+########## Domains ###########
+
+;   logon path = \\%N\profiles\%U
+
+;   logon drive = H:
+
+;   logon script = logon.cmd
+
+; add user script = /usr/sbin/adduser --quiet --disabled-password --gecos "" %u
+
+; add machine script  = /usr/sbin/useradd -g machines -c "%u machine account" -d /var/lib/samba -s /bin/false %u
+
+; add group script = /usr/sbin/addgroup --force-badname %g
+
+############ Misc ############
+
+;   include = /home/samba/etc/smb.conf.%m
+
+;   idmap config * :              backend = tdb
+;   idmap config * :              range   = 3000-7999
+;   idmap config YOURDOMAINHERE : backend = tdb
+;   idmap config YOURDOMAINHERE : range   = 100000-999999
+;   template shell = /bin/bash
+
+#   usershare max shares = 100
+
+   usershare allow guests = yes
+
+#======================= Share Definitions =======================
+
+;[homes]
+;   comment = Home Directories
+;   browseable = no
+;   read only = yes
+;   create mask = 0700
+;   directory mask = 0700
+
+[bagibagi]
+    comment = Samba on Ubuntu
+    path = /home/ubuntu/sisop4soal3/report
+    read only = no
+    browsable = yes
+    writable = yes
+    guest ok = no
+```
+
+**Melakukan mount FUSE dengan `./archeology iwak` dan melakukan listing ke direkori mount**
+![image](https://github.com/rmnovianmalcolmb/Sisop-4-2024-MH-IT08/assets/122516105/68dbd8fb-0612-4f0d-b0a2-f1e60ef847fa)
+
+**Melakukan copy file dari dalam direkori mount keluar dari direktori mount**
+![image](https://github.com/rmnovianmalcolmb/Sisop-4-2024-MH-IT08/assets/122516105/c7d756c0-0a68-4eba-bd32-da92c098e855)
+
+**Melakukan copy file dari luar direktori mount ke dalam direktori mount**
+![image](https://github.com/rmnovianmalcolmb/Sisop-4-2024-MH-IT08/assets/122516105/6fe383fe-39fb-4ea4-9882-8d2065789032)
+
+**Melakukan penghapusan di direktori mount yang mana juga menghapus pecahan file di direktori relics**
+![image](https://github.com/rmnovianmalcolmb/Sisop-4-2024-MH-IT08/assets/122516105/3cea4098-a887-41e2-a9fb-91acab55fbd0)
+
+**Samba file dari direktori report**
+![image](https://github.com/rmnovianmalcolmb/Sisop-4-2024-MH-IT08/assets/122516105/7dc1b52b-3293-47ea-9602-272b07dbd831)
+
+
+
+
