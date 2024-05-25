@@ -9,9 +9,9 @@
 #include <dirent.h>
 #include <stdlib.h>
 
-static const char *rootDir = "/path/to/IniKaryaKita";
-static const char *galleryDir = "/path/to/IniKaryaKita/gallery";
-static const char *bahayaDir = "/path/to/IniKaryaKita/bahaya";
+static const char *rootDir = "/Desktop/sisop/soal_1/portofolio";
+static const char *galleryDir = "/Desktop/sisop/soal_1/portofolio/gallery";
+static const char *bahayaDir = "/Desktop/sisop/soal_1/portofolio/bahaya";
 
 static int ikk_getattr(const char *path, struct stat *stbuf) {
     char fpath[1000];
