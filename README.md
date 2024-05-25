@@ -605,6 +605,8 @@ int main(int argc, char *argv[]) {
 **Samba file dari direktori report**
 ![image](https://github.com/rmnovianmalcolmb/Sisop-4-2024-MH-IT08/assets/122516105/7dc1b52b-3293-47ea-9602-272b07dbd831)
 
+![image](https://github.com/rmnovianmalcolmb/Sisop-4-2024-MH-IT08/assets/122516105/f93dd089-4d9f-4e83-806e-e221ac6d2a56)
+
 
 
 
